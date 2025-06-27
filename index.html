@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="shopSmart">
+<head>
+  <meta charset="UTF-8">
+  <title>ShopSmart</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+  <script src="app.js"></script>
+  <script src="controllers/mainCtrl.js"></script>
+  <script src="controllers/authCtrl.js"></script>
+  <script src="controllers/cartCtrl.js"></script>
+  <script src="services/authService.js"></script>
+  <script src="services/productService.js"></script>
+  <script src="services/orderService.js"></script>
+</head>
+<body ng-controller="mainCtrl">
+  <header>
+    <h1>ShopSmart</h1>
+    <nav>
+      <a href="#!/">Home</a>
+      <a href="#!/cart">Cart ({{cart.length}})</a>
+      <span ng-if="!user"><a href="#!/login">Login</a></span>
+      <span ng-if="user">Welcome, {{user.name}} <button ng-click="logout()">Logout</button></span>
+    </nav>
+  </header>
+  <main ng-view></main>
+</body>
+</html>
