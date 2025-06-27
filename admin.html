@@ -1,0 +1,29 @@
+<h2>Admin Dashboard</h2>
+
+<h3>Add New Product</h3>
+<form ng-submit="addProduct()">
+  <input type="text" ng-model="newProduct.name" placeholder="Name" required>
+  <input type="text" ng-model="newProduct.description" placeholder="Description">
+  <input type="number" ng-model="newProduct.price" placeholder="Price" required>
+  <input type="text" ng-model="newProduct.category" placeholder="Category">
+  <button type="submit">Add</button>
+</form>
+
+<hr>
+
+<h3>All Products</h3>
+<ul>
+  <li ng-repeat="p in products">
+    {{p.name}} - ₹{{p.price}}
+    <button ng-click="deleteProduct(p._id)">Delete</button>
+  </li>
+</ul>
+
+<hr>
+
+<h3>All Orders</h3>
+<div ng-repeat="o in orders">
+  <p><strong>User ID:</strong> {{o.userId}}</p>
+  <p><strong>Total:</strong> ₹{{o.total}} | <strong>Status:</strong> {{o.status}}</p>
+  <button ng-if="o.status == 'pending'" ng-click="markComplete(o._id)">Mark as Completed</button>
+</div>
