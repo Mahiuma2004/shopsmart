@@ -1,0 +1,6 @@
+<h2>Your Cart</h2>
+<div ng-repeat="item in cart">
+  <h4>{{item.name}} - ₹{{item.price}}</h4>
+</div>
+<p>Total: ₹{{total()}}</p>
+<button ng-click="checkout()">Checkout</button>
